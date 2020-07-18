@@ -1,0 +1,27 @@
+/*****start default theme*****/
+/*avtive link*/
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu .divider,
+.option-box .gear-cheack,
+.testimonials .carousel-indicators .active{
+    background-color: #14bdee;
+}
+
+.footer h3,
+.footer .copyright span{
+    color: #E41B17;
+}
+
+.dropdown-menu{
+    border-top: solid 3px #14bdee;
+}
+
+.option-box .color-option,
+.testimonials .carousel-indicators li.active{
+    border: 4px solid #14bdee;
+}
+/*****end default theme*****/

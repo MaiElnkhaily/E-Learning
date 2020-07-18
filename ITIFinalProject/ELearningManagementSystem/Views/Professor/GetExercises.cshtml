@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ELearningManagementSystem.Models.Exercise>
+@{
+    ViewBag.Title = "GetExercises";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <section class="exercise">
+        <h1>EXERCISE DETAILS</h1>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Start date</th>
+                    <th scope="col">End date</th>
+                    <th scope="col">
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>@Html.DisplayFor(w => item.Title)</td>
+                        <td>@Html.DisplayFor(w => item.StartDate)</td>
+                        <td>@Html.DisplayFor(w => item.EndDate)</td>
+                        <td>
+                            @Html.ActionLink("Delete", "Delete_course", "Professor", routeValues: new { Course_Code = item.Course_Code, title = item.Title }, htmlAttributes: new { style = "background-color:#dc3545;border-color:#dc3545;color: #fff;font-size:15px; border-radius:20%;padding:5px;width:70px;text-decoration:none", onclick = "return confirm('are you sure you want to delete this exercise?!!')" })
+
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </section>
+    <section class="add-exersise">
+        <a href="/professor/add_exersise">
+            <input type="button" class="btn btn-primary" value="Add new exersise">
+        </a>
+    </section>
+</div>
+
+@section scripts{
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}

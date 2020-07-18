@@ -1,0 +1,127 @@
+﻿@model ELearningManagementSystem.Models.Student
+
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+<div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <!--start edit profile-->
+    <section class="edit-profile">
+        <div class="container">
+            <h1>Edit Profile</h1>
+            <hr>
+            <div class="row">
+
+                @using (Html.BeginForm("EditProf", "Student", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal ", enctype = "multipart/form-data" }))
+                {
+
+
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <img src="~/images/@Model.Photo" class="avatar img-circle" alt="avatar">
+                            <h4>Upload photo</h4>
+                            <input type="file" name="Poster" class="form-control">
+                        </div>
+                    </div>
+                    <!-- edit form column -->
+                    <div class="col-md-9 personal-info">
+                        <div class="alert alert-danger text-center" style="width:70%;display:none" id="error">@ViewBag.error</div>
+                        @*<div class="form-group">
+                                <label class="col-lg-3 control-label">Id:</label>
+                                @Html.LabelFor(ww => ww.Student_Code, new { @class = "col-lg-3 control-label" })
+                                <div class="col-lg-8">
+                                    <input class="form-control" type="text" value="@Model.Student_Code" disabled>
+                                </div>
+                            </div>*@
+                        @Html.HiddenFor(ww => ww.Student_Code)
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Name:</label>
+                            @*@Html.LabelFor(ww => ww.Personal_Name, new { @class = "col-lg-3 control-label" })*@
+                            <div class="col-lg-8">
+                                @Html.TextBoxFor(ww => ww.Personal_Name, htmlAttributes: new { @Value = Model.Personal_Name, @class = "form-control", required = "required" })
+                                @*<input class="form-control" type="text" placeholder="Enter name" value="@Model.Personal_Name">*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Username:</label>
+                            <div class="col-lg-8">
+                                @Html.TextBoxFor(ww => ww.UserName, htmlAttributes: new { @Value = Model.UserName, @class = "form-control", required = "required", id = "un" })
+                                @*<input class="form-control" type="text" placeholder="Enter username" value="@Model.UserName">*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Department:</label>
+                            <div class="col-lg-8">
+                                @Html.DropDownListFor(ww => ww.Dept_Id, ViewBag.DeptList as SelectList, new { @class = "form-control" })
+                                @*<input class="form-control" type="text" placeholder="Enter department-id" value="">*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Email-address:</label>
+                            <div class="col-lg-8">
+                                @Html.TextBoxFor(ww => ww.E_Mail, htmlAttributes: new { @Value = Model.E_Mail, @class = "form-control", @type = "email", required = "required" })
+                                @*<input class="form-control" type="text" placeholder="Enter email" value="@Model.E_Mail">*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Password:</label>
+                            <div class="col-lg-8">
+                                @Html.PasswordFor(ww => ww.Password, htmlAttributes: new { @class = "form-control", required = "required" })
+                                @*<input class="form-control" type="password" placeholder="Enter password" value="@Model.Password">*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Confirm password:</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="password" placeholder="Confirm password" value="">*@
+                                @Html.PasswordFor(ww => ww.CPassword, htmlAttributes: new { @class = "form-control", required = "required" })
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.ValidationSummary("", htmlAttributes: new { @class = "text-danger" })
+                            <label class="col-lg-3 control-label"></label>
+                            <div class="col-lg-8">
+                                <input type="submit" class="btn btn-success" value="Save">
+                                <span></span>
+                                @Html.ActionLink("Cancel", null, null, null, new { @class = "btn btn-danger", onclick = "return confirm ('Are you sure ! you want to cancel !!')", href = Request.UrlReferrer })
+                                @*<input type="reset" class="btn btn-danger" value="Cancel">*@
+                            </div>
+                        </div>
+
+
+                    </div>
+                }
+            </div>
+        </div>
+        <hr>
+    </section>
+    <!--end edit profile-->
+</div>
+
+@section scris{
+
+    <script>
+        var err = document.getElementById("error");
+        var un = document.getElementById("un");
+        if (err.innerText != "") {
+
+            err.style.display = "block";
+        }
+
+        un.addEventListener("click", function () {
+
+            err.style.display = "none";
+        })
+    </script>
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}

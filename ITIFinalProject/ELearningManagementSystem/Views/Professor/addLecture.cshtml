@@ -1,0 +1,154 @@
+﻿@model ELearningManagementSystem.Models.Lecture
+
+
+
+@{
+    ViewBag.Title = "addLecture";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="page-wrapper" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row" id="main">
+            <div class="col-sm-12 col-md-12 well" id="content" margin-top: 50px;>
+                <section class="Edit lectures">
+                    <h1>Add lecture <i class="fa fa-fw fa-edit"></i></h1>
+                    <hr>
+
+                    <!-- Editor Control Box -->
+
+                    <form action="/professor/addLecture" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Tittle:</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" name="Lecture1" style="margin-left: -200px;margin-bottom: 20px;" type="text" placeholder="Enter lec.tittle" value="">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Lecture :</label>
+                            <div class="col-lg-8">
+                                <input class="form-control " name="PDF" style="margin-left: -200px;margin-bottom: 20px;" type="text" placeholder="Lecture file" disabled id="txtpdf" value="">
+
+                                <div class="rte button main fileUpload" style="margin-right: 50px; position: relative; overflow: hidden; cursor: pointer;float: right;margin-top: -52px;">
+                                    <span class="upl">Upload <i class="fa fa-fw fa-upload"></i></span>
+                                    <input type="file" name="File" accept=".pdf" class="upload" id="imfile" value="" onchange="getValue()" />
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Video :</label>
+                            <div class="col-lg-8">
+                                <input class="form-control" type="text" style="margin-left: -200px;margin-bottom: 20px;" name="Video" disabled placeholder="Video file " id="vid" value="">
+
+
+
+
+                                <div class="rte button main fileUpload" style="margin-right: 50px; position: relative; overflow: hidden; cursor: pointer;float: right;margin-top: -52px;">
+                                    <span class="upl">Upload <i class="fa fa-fw fa-upload"></i></span>
+                                    <input type="file" accept=".mp4" name="Vid" class="upload" id="vidfile" onchange="chValue()" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Audio :</label>
+                            <div class="col-lg-8">
+                                <input name="Audio" disabled id="aud" class="form-control" style="margin-left: -200px;margin-bottom: 20px;" type="text" placeholder="Audio file  "
+                                       value="">
+
+
+                                <div class="rte button main fileUpload" style="margin-right: 50px; position: relative; overflow: hidden; cursor: pointer;float: right;margin-top: -52px;">
+                                    <span class="upl">Upload <i class="fa fa-fw fa-upload"></i></span>
+                                    <input id="audio" name="Aud" type="file" accept=".mp3" class="upload input-button" onchange="chAudio()" />
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+
+                        <div class="form-group">
+                            @*<label class="col-lg-3 control-label"></label>*@
+                            <div class="col-md-6">
+                                <input type="submit" class="btn btn-success" value="Save">
+                                <button class="btn btn-danger" style="margin-left:20px">
+                                    @Html.ActionLink("Back", null, null, null, new { @style = "color:white;text-decoration:none;font-size:15px", href = Request.UrlReferrer })
+                                </button>
+
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+                    </form>
+                    <!--end text editor-->
+
+                </section>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
+    </div>
+
+@section scripts{
+
+    <script>
+        function getValue() {
+
+            var up = document.getElementById("imfile");
+            var txt1 = document.getElementById("txtpdf");
+
+            if (up != null) {
+
+                txt1.value = up.value;
+            } else {
+                txt1.value = "";
+            }
+        }
+
+        function chValue() {
+            var vid = document.getElementById("vid");
+            var vidfi = document.getElementById("vidfile");
+            if (vidfi != null) {
+
+                vid.value = vidfi.value;
+            } else {
+                vid.value = "";
+            }
+        }
+        function chAudio() {
+
+            var aud = document.getElementById("aud");
+            var audfi = document.getElementById("audio");
+            if (audfi != null) {
+
+                aud.value = audfi.value;
+            } else {
+                aud.value = "";
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}

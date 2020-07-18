@@ -1,0 +1,138 @@
+﻿@model ELearningManagementSystem.Models.Cours
+@{
+    ViewBag.Title = "addCourse";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <!--start edit profile-->
+    <section class="new-course">
+        <div class="container">
+            <h1>Add New Course <i class="fa fa-fw fa-book"></i></h1>
+            <hr>
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-3">
+                </div>
+                <!-- edit form column -->
+                <div class="col-md-9 personal-info">
+                    <div class="alert alert-danger text-center" style="width:100%;display:none" id="error">@ViewBag.error</div>
+
+                    @using (Html.BeginForm("addCour", "Admin", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Course Code: </label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="text" value="1010" disabled>*@
+                                @Html.TextBoxFor(ww => ww.Course_Code, new { @class = "form-control" , id ="un", required ="required" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Course name: </label>
+                            @*@Html.LabelFor(ww => ww.Course_Name ,new { @class="col-lg-3 control-label" })*@
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="text" placeholder="Enter course name" value="">*@
+                                @Html.TextBoxFor(ww => ww.Course_Name, new { @class = "form-control", required ="required" })
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Course Date: </label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="text" value="1010" disabled>*@
+                                @Html.TextBoxFor(ww => ww.Course_Date, new { @class = "form-control", type = "date", required ="required" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Course Image: </label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="text" value="1010" disabled>*@
+                                @Html.TextBoxFor(ww => ww.Photo, new { @class = "form-control", type = "file", required ="required" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Professor Name: </label>
+                            <div class="col-lg-8">
+                                @*<div class="selector">
+                                        <select required>
+                                            <option selected value="0">Mohamed Abdalla</option>
+                                            <option value="1">Ben Bella</option>
+                                        </select>
+                                    </div>*@
+                                @Html.DropDownListFor(ww => ww.Prof_Id, ViewBag.profs as SelectList, new { @class = "form-control", required ="required" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Dept: </label>
+                            <div class="col-md-8">
+                                @*<div class="selector">
+                                        <select required>
+                                            <option selected value="0">IS</option>
+                                            <option value="1">CS</option>
+                                        </select>
+                                    </div>*@
+                                @Html.DropDownListFor(ww => ww.Dept_Id, ViewBag.depts as SelectList, new { @class = "form-control" , required ="required" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        </div>
+                        <div class="form-group">
+                            @Html.ValidationSummary("", new { style = "color:red;" })
+
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-8">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+    <!--end edit profile-->
+</div>
+
+@section script{
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+    <script>
+        var err = document.getElementById("error");
+        var un = document.getElementById("un");
+        if (err.innerText != "") {
+
+            err.style.display = "block";
+        }
+
+        un.addEventListener("click", function () {
+
+            err.style.display = "none";
+        })
+    </script>
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}
+
+
+
+
+
+
+

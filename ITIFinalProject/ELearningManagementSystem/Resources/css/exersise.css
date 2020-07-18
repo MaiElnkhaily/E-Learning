@@ -1,0 +1,49 @@
+input[type="button"]:focus{
+    outline: none;
+    border: none;
+}
+
+input[type="button"]::-moz-focus-inner{
+    border: 0;
+}
+.exercise .table{
+    width: 1000px;
+    text-align: center;
+    align-self: center;
+    margin-left: 42px;
+}
+.exercise .table > thead:first-child > tr:first-child > th {
+    border: 1px solid #e7e7e7;
+    background-color: #9B0000;
+    color: #e7e7e7;
+}
+.exercise .table-bordered > tbody > tr > td {
+    border: 1px solid #9B0000;
+    background-color: #fff;
+    color:  rgb(48, 75, 86);
+    height: 35px;
+}
+
+.doctor .table{
+    width: 1000px;
+    text-align: center;
+    align-self: center;
+    margin-left: 42px;
+}
+.doctor .table > thead:first-child > tr:first-child > td {
+    text-align: center;
+    color: #e7e7e7;
+    font-size: 18px;
+    background-color: #9B0000;
+}
+.doctor .table > thead:first-child > tr:first-child > th {
+    border: 1px solid #e7e7e7;
+    background-color: #9B0000;
+    color: #e7e7e7;
+}
+.doctor .table > tbody > tr > td {
+    border: 1px solid #9B0000;
+    background-color: #fff;
+    color:  rgb(48, 75, 86);
+    height: 35px;
+}

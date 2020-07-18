@@ -1,0 +1,166 @@
+﻿@model ELearningManagementSystem.Models.Student
+@{
+    ViewBag.Title = "Add_Student";
+    ViewBag.Title = "DeptList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div id="page-wrapper" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row" id="main">
+            <div class="col-sm-12 col-md-12 well" id="content">
+                <!--start edit profile-->
+                <section class="new-student">
+                    <div class="container">
+                        <h1>Add New Student</h1>
+                        <hr>
+
+                        <!-- edit form column -->
+                        <div class="col-md-9 personal-info">
+                            <div class="alert alert-danger text-center" style="width:100%;display:none" id="error">@ViewBag.error</div>
+                            @using (Html.BeginForm("Add_Student", "Admin", FormMethod.Post, htmlAttributes: new { @class = "form-horizontal " }))
+                            {
+
+                                @*<form class="form-horizontal" role="form">*@
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label"> Name:</label>
+                                    <div class="col-lg-8">
+                                        @Html.TextBoxFor(q => q.Personal_Name, new { @class = "form-control", required = "required", placeholder = "Enter Name" })
+                                        @Html.ValidationMessageFor(w => w.Personal_Name, "", new { style = "color:red;" })
+                                        @*<input class="form-control" type="text" value="" placeholder="Enter name">*@
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">Username:</label>
+                                    <div class="col-lg-8">
+                                        @Html.TextBoxFor(q => q.UserName, new { @class = "form-control", required = "required", placeholder = "Enter UserName", id = "un" })
+                                        @Html.ValidationMessageFor(w => w.UserName, "", new { style = "color:red;" })
+                                        @*<input class="form-control" type="text" placeholder="Enter username" value="">*@
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Password:</label>
+                                    <div class="col-md-8">
+                                        @Html.PasswordFor(w => w.Password, new { @class = "form-control", required = "required", placeholder = "Enter Password" })
+                                        @Html.ValidationMessageFor(w => w.Password, "", new { style = "color:red;" })
+                                        @*<input class="form-control" type="password" placeholder="Enter password" value="">*@
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Confirm Password:</label>
+                                    <div class="col-md-8">
+                                        @Html.PasswordFor(w => w.CPassword, new { @class = "form-control", required = "required", placeholder = "Enter Password" })
+                                        @Html.ValidationMessageFor(w => w.CPassword, "", new { style = "color:red;" })
+                                        @*<input class="form-control" type="password" placeholder="Confirm password" value="">*@
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">Email:</label>
+                                    <div class="col-lg-8">
+                                        @Html.TextBoxFor(w => w.E_Mail, new { @class = "form-control", required = "required", placeholder = "Enter Email", type = "email" })
+                                        @Html.ValidationMessageFor(w => w.E_Mail, "", new { style = "color:red;" })
+                                        @*<input class="form-control" type="email" placeholder="Enter email" value="">*@
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Birthday:</label>
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(w => w.BirthDate, new { @class = "form-control", required = "required", placeholder = "Enter Email", type = "date" })
+                                        @Html.ValidationMessageFor(w => w.BirthDate, "", new { style = "color:red;" })
+                                        @*<input class="form-control" type="date" placeholder="" value="">*@
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Gender: </label>
+                                    <div class="col-md-8">
+                                        <div class="selector">
+                                            @Html.DropDownList("Gender", new SelectList(Enum.GetValues(typeof(ELearningManagementSystem.Models.Gender))), new { @class = "form-control", required = "required" })
+                                            @Html.ValidationMessageFor(w => w.Gender, "", new { style = "color:red;" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Course: </label>
+                                    <div class="col-md-8">
+                                        <div class="selector">
+                                            @Html.DropDownListFor(ww => ww.Course, ViewBag.courses as SelectList, new { @class = "form-control", required = "required" })
+                                            @Html.ValidationMessageFor(w => w.Course, "", new { style = "color:red;" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Department: </label>
+                                    <div class="col-md-8">
+                                        <div class="selector">
+                                            @Html.DropDownListFor(q => q.Dept_Id, ViewBag.DeptList as SelectList, new { @class = "form-control", required = "required" })
+                                            @Html.ValidationMessageFor(w => w.Dept_Id, "", new { style = "color:red;" })
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"></label>
+                                    <div class="col-md-8">
+                                        <button type="submit" class="btn btn-primary" id="add">Add</button>
+                                        @Html.ActionLink("Back", null, null, null, new { @class = "btn btn-danger", @id = "cancel", href = Request.UrlReferrer })
+
+                                    </div>
+                                </div>
+                            }
+                            @*</form>*@
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+            <!--end edit profile-->
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
+@*@section scripts{
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+
+    }*@
+
+@section script{
+
+    <script>
+        var err = document.getElementById("error");
+        var un = document.getElementById("un");
+        if (err.innerText != "") {
+
+            err.style.display = "block";
+        }
+
+        un.addEventListener("click", function () {
+
+            err.style.display = "none";
+        })
+    </script>
+
+    
+        <script type="text/javascript">
+            window.history.forward();
+            function noBack() {
+                window.history.forward();
+            }
+        </script>
+
+
+}

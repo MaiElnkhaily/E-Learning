@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "adminHome";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="btn-Containetr" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <button class="favorite styled"
+            type="button">
+        <a href="/admin/students"> <i class="fa fa-fw fa-group"></i> Students</a>
+
+
+    </button>
+
+
+    <button class="favorite styled"
+            type="button">
+        <a href="/admin/getAllProfessors"><i class="fa fa-fw fa-user"></i> Professors </a>
+    </button>
+
+    <button class="favorite styled"
+            type="button" id="btn-Courses">
+        <a href="/admin/getAllCourses"><i class="fa fa-fw fa-book"></i>  Courses</a>
+    </button>
+</div>
+
+
+@section script{
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}

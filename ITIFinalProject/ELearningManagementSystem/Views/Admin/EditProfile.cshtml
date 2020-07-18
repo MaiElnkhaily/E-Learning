@@ -1,0 +1,123 @@
+﻿@model ELearningManagementSystem.Models.Admin
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <!--start edit profile-->
+    <section class="edit-profile">
+        <div class="container">
+            <h1>Edit Profile</h1>
+            <hr>
+            <div class="row">
+                <div class="alert alert-danger text-center" style="width:100%;display:none" id="error">@ViewBag.error</div>
+
+                @using (Html.BeginForm("EditProfileAd", "admin", htmlAttributes: new { @class = "form-horizontal " }, method: FormMethod.Post))
+                {
+                    @Html.HiddenFor(ww => ww.Admin_Id)
+                    @Html.HiddenFor(ww => ww.Active)
+                    @Html.HiddenFor(ww => ww.Type)
+                    @Html.HiddenFor(ww => ww.Photo)
+                    <!-- left column -->
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <img src="~/images/@Model.Photo" class="avatar img-circle" alt="avatar">
+                            <h4>Upload photo</h4>
+                            @*<input type="file" value="@Model.Photo" class="form-control">*@
+                            @Html.TextBoxFor(ww => ww.Photo, new { @class = "form-control", type = "file" })
+                        </div>
+                    </div>
+                    <!-- edit form column -->
+                    <div class="col-md-9 personal-info">
+
+                        @*<div class="form-group">
+                                <label class="col-lg-3 control-label">Id:</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" type="text" value="@Model.Admin_Id" disabled>
+                                </div>
+                            </div>*@
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Name:</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="text" placeholder="Enter name" value="">*@
+                                @Html.TextBoxFor(ww => ww.PersonalName, htmlAttributes: new { @Value = Model.PersonalName, @class = "form-control", required = "required" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Username:</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="text" placeholder="Enter username" value="">*@
+                                @Html.TextBoxFor(ww => ww.UserName, htmlAttributes: new { @Value = Model.UserName, @class = "form-control", required = "required", id = "un" })
+                                @Html.ValidationMessageFor(ww => ww.UserName, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Email:</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="text" placeholder="Enter your email" value="">*@
+                                @Html.TextBoxFor(ww => ww.E_Mail, htmlAttributes: new { @Value = Model.E_Mail, @class = "form-control", required = "required" })
+                                @Html.ValidationMessageFor(ww => ww.E_Mail, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Password:</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="password" placeholder="Enter password" value="">*@
+                                @Html.PasswordFor(ww => ww.Password, htmlAttributes: new { @Value = Model.Password, @class = "form-control", required = "required" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Confirm password:</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="password" placeholder="Confirm password" value="">*@
+                                @Html.PasswordFor(ww => ww.CPassword, htmlAttributes: new { @Value = Model.CPassword, @class = "form-control", required = "required" })
+                                @Html.ValidationMessageFor(ww => ww.CPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label class="col-lg-3 control-label"></label>
+                            <div class="col-lg-8">
+                                <input type="submit" class="btn btn-success" value="Save">
+                                <span></span>
+                                @*<input type="reset" class="btn btn-danger" value="Cancel">*@
+                                @Html.ActionLink("Cancel", null, null, null, new {href = Request.UrlReferrer })
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+        <hr>
+    </section>
+    <!--end edit profile-->
+</div>
+@section script{
+
+    <script>
+        var err = document.getElementById("error");
+        var un = document.getElementById("un");
+        if (err.innerText != "") {
+
+            err.style.display = "block";
+        }
+
+        un.addEventListener("click", function () {
+
+            err.style.display = "none";
+        })
+    </script>
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+}

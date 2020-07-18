@@ -1,0 +1,132 @@
+﻿@model ELearningManagementSystem.Models.Professor
+@{
+    ViewBag.Title = "AddProfessor";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <!--start edit profile-->
+    <section class="new-doctor">
+        <div class="container">
+            <h1>Add New Professor</h1>
+            <hr>
+            <div class="row">
+                <!-- left column -->
+                <!-- edit form column -->
+                <div class="col-md-9 personal-info">
+                    <div class="alert alert-danger text-center" style="width:100%;display:none" id="error">@ViewBag.error</div>
+
+                    @using (Html.BeginForm("addprof", "Admin", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        @*@Html.AntiForgeryToken()*@
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label"> Name:</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="text" value=""
+                                    placeholder="Enter name">*@
+                                @Html.TextBoxFor(ww => ww.PersonalName, new { @class = "form-control", placeholder = "Enter Name" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Username:</label>
+                            <div class="col-lg-8">
+                                @*<input class="form-control" type="text" placeholder="Enter username"
+                                    value="">*@
+                                @Html.TextBoxFor(ww => ww.UserName, new { @class = "form-control", placeholder = "Enter UserName", required = "required", id = "un" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Password:</label>
+                            <div class="col-md-8">
+                                @Html.PasswordFor(ww => ww.Password, new { @class = "form-control", placeholder = "Enter Password", required = "required" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Confirm Password:</label>
+                            <div class="col-md-8">
+                                @Html.PasswordFor(ww => ww.CPassword, new { @class = "form-control", placeholder = "Confirm Password", required = "required" })
+                                @Html.ValidationMessageFor(ww => ww.CPassword, "", new { style = "color:red" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Email:</label>
+                            <div class="col-lg-8">
+                                @Html.TextBoxFor(ww => ww.E_Mail, new { @class = "form-control", placeholder = "Enter Email", required = "required", type = "email" })
+                                @Html.ValidationMessageFor(ww => ww.E_Mail, "", new { style = "color:red" })
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                                <label class="col-md-3 control-label">Hiredate:</label>
+                                <div class="col-md-8">
+                                    @Html.TextBoxFor(ww => ww.HireDate, new { @class = "form-control", placeholder = "Enter Name" })
+
+                                </div>
+                            </div>*@
+                        @*<div class="form-group">
+                                <label class="col-md-3 control-label">Type:</label>
+                                <div class="col-md-8">
+                                    <div class="selector">
+                                        <select required>
+                                            <option selected value="0">Professor</option>
+                                            <option value="1">Teaching Assistant</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>*@
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Department: </label>
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(ww => ww.Dept_Id, ViewBag.depts as SelectList, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Courses: </label>
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(ww => ww.course_code, ViewBag.courses as SelectList, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label class="col-md-3 control-label"></label>
+                            <div class="col-md-8">
+                                <button class="btn btn-primary" type="submit">Add</button>
+
+                            </div>
+                        </div>
+                    }
+                    @*@Html.ValidationSummary("", new { @style = "color:red;" })*@
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+    <!--end edit profile-->
+</div>
+
+@section script{
+
+    <script>
+        var err = document.getElementById("error");
+        var un = document.getElementById("un");
+        if (err.innerText != "") {
+
+            err.style.display = "block";
+        }
+
+        un.addEventListener("click", function () {
+
+            err.style.display = "none";
+        })
+    </script>
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}

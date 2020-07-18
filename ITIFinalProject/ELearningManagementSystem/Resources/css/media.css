@@ -1,0 +1,630 @@
+/*mobile & tablet*/
+@media (max-width:767px){
+    .navbar-inverse .navbar-nav > li > a{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    .subscribe .form-control{
+        margin: 20px auto;
+    }
+    
+    .navbar-fixed-top .navbar-collapse,
+    .navbar-fixed-bottom .navbar-collapse{
+        max-height: none;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a{
+        color: #FFF;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus{
+        color:  #14bdee;
+    }
+    /*---carousel----*/
+    .carousel-inner > .item > img{
+        height: 500px;
+    }
+    /*---login--*/
+    #contactForm{
+        background-color: rgba(46, 79, 93, 0.65);
+        border: 2px double rgb(231, 231, 231);
+    }
+    /*---main.html---*/
+    .navbar-brand > img {
+        width: 30px;
+    }
+    .well{
+         padding-top: 50px;   
+        }
+    /*---footer-----*/
+    .copy-write p{
+        padding: 5px;
+        font-size: 15px;
+    }
+    .menu_social_item{
+        margin-left: 20px;
+    }
+    .footer_mobile img{
+        width: 100px;
+        margin-left: 150px;
+        margin-top: 10px;
+    }
+}
+
+
+/*small screen*/
+@media(min-width:768px) and (max-width:991px){
+    /*---footer-----*/
+    .copy-write{
+        padding: 20px;
+    }
+    .footer_mobile img{
+        padding: 25px;
+    }
+    .menu_social_item{
+        margin: 5px
+    }
+}
+
+/*medium screen*/
+@media(min-width:992px) and (max-width:1199px){
+}
+
+/*large screen*/
+@media (min-width:1200px){
+    
+}
+
+
+/*mobile & tablet*/
+@media (max-width:767px){
+    /*------------professor-------------*/
+    /*dashborsd*/
+    .dashboard h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 22px;
+    }
+    /*action*/
+    .action h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 22px;
+    }
+    .action i{
+        font-size: 22px;
+    }
+    /*course*/
+    .courses img{
+        padding: 20px;
+        margin-left: 50px
+    }
+    .courses button{
+        margin-bottom: 20px;
+        margin-left: 150px;
+    }
+    /*lectures*/
+    .lectures a{
+    color: rgb(48, 75, 86);
+    font-size: 20px;
+    font-family: cursive;
+    font-weight: bold;
+   }
+    .lectures .table > thead > tr > th {
+        vertical-align: bottom;
+        border: 2px solid rgb(48, 75, 86);
+        font-size: 18px;
+        color: rgb(48, 75, 86);
+        background-color: #e7e7e7;
+        text-align: center;     
+    }
+    .lectures .nav-tabs {
+        border-bottom: 2px solid #304b56;
+        padding-top: 20px;
+    }
+    .lectures .nav-tabs > li.active > a,
+        .nav-tabs > li.active > a:hover,
+        .nav-tabs > li.active > a:focus {
+        color: #e7e7e7;
+        cursor: default;
+        background-color: rgb(48, 75, 86);
+        border: 2px solid #304b56;
+        border-bottom-color: #304b56;
+    }
+    .lectures .table > thead > tr > th,
+    .table > tbody > tr > th, .table > tfoot > tr > th,
+    .table > thead > tr > td, .table > tbody > tr > td,
+    .table > tfoot > tr > td{
+        border: 2px solid #304b56;
+    }
+    /*agenda*/
+    .agenda h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 22px;
+    }
+    .agenda span{
+      font-size: 15px;
+      padding: 20px;
+    }
+    .agenda textarea{
+        border-radius: 20px;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .agenda button{
+      border-radius: 50px;
+      margin-right: 5px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    /*annoncement*/
+    .annoncements h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 22px;
+    }
+    .annoncements h3{
+        color: rgb(48, 75, 86);
+        font-family:sans-serif;
+    }
+    .annoncements input{
+        border-radius: 20px;
+        width: 300px;
+        padding: 5px 10px;
+        font-size: 15px;
+    }
+    .annoncements textarea{
+        border-radius: 20px;
+        font-size: 15px;
+    }
+    .annoncements button{
+        border-radius: 50px;
+        padding: 5px 10px;
+    }
+    /*exercise*/
+    .exercise h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    }
+    .exercise .table > thead:first-child > tr:first-child > th{
+        text-align: center;
+        background-color: rgb(48, 75, 86);
+        color: #e7e7e7;
+        font-size: 15px;    
+    }
+    .exercise .table-bordered > tbody > tr > td{
+        border: 2px solid #304b56;
+        color: rgb(48, 75, 86);
+        font-size: 15px; 
+    }
+    /*result*/
+    .result h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    }
+    .result .table > thead:first-child > tr:first-child > th{
+        text-align: center;
+        background-color: rgb(48, 75, 86);
+        color: #e7e7e7;
+        font-size: 10px;    
+    }
+    .result .table-bordered > tbody > tr > td{
+        border: 2px solid #304b56;
+        color: rgb(48, 75, 86);
+        font-size: 10px; 
+    }
+    .result .btn-info{
+        border-radius: 50px;
+    }
+    .result .btnn{
+        text-align: center;
+    }
+    /*--------------student----------*/
+    /*lecture*/
+    .lectures .table > thead:first-child > tr:first-child > th{
+    text-align: center;
+    background-color: rgb(48, 75, 86);
+    color: #e7e7e7;
+    font-size: 18px;    
+    }
+    .lectures .table-bordered > tbody > tr > td{
+        border: 2px solid #304b56;
+        color: rgb(48, 75, 86);
+        font-size: 15px; 
+    }
+    .lectures .table > thead > tr > th,
+    .table > tbody > tr > th, .table > tfoot > tr > th,
+    .table > thead > tr > td, .table > tbody > tr > td,
+    .table > tfoot > tr > td{
+        border: 2px solid #304b56;
+    }
+    /*result*/
+    .result input{
+    border-radius: 50px;
+    }
+    /*exercise*/
+    .exercise h4{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    }
+    .exercise .btn-primary{
+    border-radius: 50px;    
+    }
+    /*--------------admin------------*/
+    /*my profile*/
+    .edit-profile h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    text-align: center;
+    font-size: 22px;
+    }
+    .edit-profile h1{
+        color: rgb(48, 75, 86);
+    }
+    .edit-profile .img-circle{
+        width: 150px;
+    }
+    .edit-profile input{
+        border-radius: 500px;
+    }
+    .edit-profile label{
+        color: rgb(48, 75, 86);
+    }
+    .edit-profile .form-control{
+        color: rgb(48, 75, 86);
+    }
+    /*exam*/
+    #content{
+        min-height: 620px;
+    }
+    .exam h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 22px;
+    }
+    .exam input{
+        width: 350px;
+        border-radius: 50px;
+        margin-bottom: 10px;
+    }
+    .exam .btn-primary{
+        border-radius: 50px;
+    }
+    /*event*/
+    #content{
+        min-height: 620px;
+    }
+    .event h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    }
+    .event .table > thead:first-child > tr:first-child > td{
+        text-align: center;
+        background-color: rgb(48, 75, 86);
+        color: #e7e7e7;
+        font-size: 15px;    
+    }
+    .event .table-bordered > tbody > tr > td{
+        border: 2px solid #304b56;
+        color: rgb(48, 75, 86);
+        font-size: 12px; 
+    }
+    .event .btn-success,
+    .event .btn-danger{
+        border-radius: 20px;
+        text-align: center;
+    }
+    .event h4{
+        color: rgb(48, 75, 86);
+        font-family:sans-serif;
+        font-size: 15px;
+    }
+    .event input{
+        border-radius: 50px;
+        width: 300px;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+    .event .btn-primary{
+        border-radius: 50px;
+        margin: 5px;
+        margin-top: 0px;
+    }
+    /*courses*/
+    #content{
+        min-height: 620px;
+    }
+    .course h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    }
+    .course .table > thead:first-child > tr:first-child > td{
+        text-align: center;
+        background-color: rgb(48, 75, 86);
+        color: #e7e7e7;
+        font-size: 15px;    
+    }
+    .course .table-bordered > tbody > tr > td{
+        border: 2px solid #304b56;
+        color: rgb(48, 75, 86);
+        font-size: 12px; 
+    }
+    .course .btn-success,
+    .course .btn-danger{
+        border-radius: 20px;
+        text-align: center;
+    }
+    .course .btn-primary{
+        border-radius: 50px;
+        margin: 2px;
+    }
+    /*add new course*/
+    #content{
+        min-height: 620px;
+    }
+    .new-course h1{
+        color: rgb(48, 75, 86);
+        font-family: cursive;
+        font-weight: bold;
+        font-size: 22px;
+    }
+    .new-course input,
+    .new-course .selector{
+        border-radius: 50px;
+       padding: .4em;
+       background: rgb(231, 231, 231);
+       color: rgb(48, 75, 86);
+    }
+    .new-couses label{
+        color: rgb(48, 75, 86);
+    }
+    .new-course select {
+        text-transform: none;
+        background-color: #e7e7e7;
+        border: none;
+        width: 100%;
+    }
+    .new-course .btn-primary{
+        border-radius: 50px;
+    }
+    /*doctors*/
+    #content{
+        min-height: 620px;
+    }
+    .doctor h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    }
+    .doctor .table > thead:first-child > tr:first-child > td{
+        text-align: center;
+        background-color: rgb(48, 75, 86);
+        color: #e7e7e7;
+        font-size: 12px;    
+    }
+    .doctor .table-bordered > tbody > tr > td{
+        border: 2px solid #304b56;
+        color: rgb(48, 75, 86);
+        font-size: 8px; 
+    }
+    .doctor .btn-success,
+    .doctor .btn-danger{
+        border-radius: 20px;
+        text-align: center;
+        font-size: 8px;
+        margin: 2px;
+    }
+    .doctor .btn-primary{
+        border-radius: 50px;
+        margin: 0px;
+        font-size: 12px;
+    }
+    /*edit doctor*/
+    .edit-doctor h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    }
+    .edit-doctor img{
+        width: 150px;
+    }
+    .edit-doctor input,
+    .edit-doctor .selector{
+        border-radius: 50px;
+       padding: .4em;
+       background: rgb(231, 231, 231);
+       color: rgb(48, 75, 86);
+    }
+    .edit-doctor label{
+        color: rgb(48, 75, 86);
+    }
+    .edit-doctor select {
+        text-transform: none;
+        background-color: #e7e7e7;
+        border: none;
+        width: 100%;
+    }
+    .edit-doctor .btn-primary,
+    .edit-doctor .btn-danger{
+        border-radius: 50px;
+    }
+    /*add new doctor*/
+    .new-doctor h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    }
+    .new-doctor img{
+        width: 150px;
+    }
+    .new-doctor input,
+    .new-doctor .selector{
+        border-radius: 50px;
+       padding: .4em;
+       background: rgb(231, 231, 231);
+       color: rgb(48, 75, 86);
+    }
+    .new-doctor label{
+        color: rgb(48, 75, 86);
+    }
+    .new-doctor select {
+        text-transform: none;
+        background-color: #e7e7e7;
+        border: none;
+        width: 100%;
+    }
+    .new-doctor .btn-primary,
+    .new-doctor .btn-danger{
+        border-radius: 50px;
+    }
+    /*student*/
+    .student h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    }
+    .student .table > thead:first-child > tr:first-child > td{
+        text-align: center;
+        background-color: rgb(48, 75, 86);
+        color: #e7e7e7;
+        font-size: 12px;    
+    }
+    .student .table-bordered > tbody > tr > td{
+        border: 2px solid #304b56;
+        color: rgb(48, 75, 86);
+        font-size: 10px; 
+    }
+    .student .btn-success,
+    .student .btn-danger{
+        border-radius: 20px;
+        text-align: center;
+        font-size: 10px;
+        margin: 2px;
+    }
+    .student .btn-primary{
+        border-radius: 50px;
+        margin: 2px;
+    }
+    /*edit student*/
+    .edit-student h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    }
+    .edit-student img{
+        width: 150px;
+    }
+    .edit-student input,
+    .edit-student .selector{
+        border-radius: 50px;
+       padding: .4em;
+       background: rgb(231, 231, 231);
+       color: rgb(48, 75, 86);
+    }
+    .edit-student label{
+        color: rgb(48, 75, 86);
+    }
+    .edit-student select {
+        text-transform: none;
+        background-color: #e7e7e7;
+        border: none;
+        width: 100%;
+    }
+    .edit-student .btn-primary,
+    .edit-student .btn-danger{
+        border-radius: 50px;
+    }
+    /*add new student*/
+    .new-student h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    }
+    .new-student img{
+        width: 150px;
+    }
+    .new-student input,
+    .new-student .selector{
+        border-radius: 50px;
+       padding: .4em;
+       background: rgb(231, 231, 231);
+       color: rgb(48, 75, 86);
+    }
+    .new-student label{
+        color: rgb(48, 75, 86);
+    }
+    .new-student select {
+        text-transform: none;
+        background-color: #e7e7e7;
+        border: none;
+        width: 100%;
+    }
+    .new-student .btn-primary,
+    .new-student .btn-danger{
+        border-radius: 50px;
+    }
+    /*schedule*/
+    .Schedule h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 22px;
+    }
+    .Schedule input,
+    .Schedule .selector{
+        border-radius: 50px;
+       padding: .4em;
+       background: rgb(231, 231, 231);
+       color: rgb(48, 75, 86);
+    }
+    .Schedule label{
+        color: rgb(48, 75, 86);
+    }
+    .Schedule select {
+        text-transform: none;
+        background-color: #e7e7e7;
+        border: none;
+        width: 100%;
+    }
+    .Schedule .btn-primary,
+    .Schedule .btn-danger{
+        border-radius: 50px;
+    }
+}

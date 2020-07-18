@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <!--IE comptability Meta-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--First Mobile Meta-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    @*<link href="~/Resources/css/bootstrap.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/Resources/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="~/Resources/css/professor.css" />
+        <link rel="stylesheet" href="~/Resources/css/media.css" />
+        <link rel="stylesheet" href="~/Resources/css/default_theme.css" />
+        <link rel="stylesheet" href="~/Resources/css/hover.css" />
+        <link rel="stylesheet" href="~/Resources/css/animate.css" />
+        <link rel="stylesheet" href="~/Resources/css/edit-lecture.css">
+        <link rel="stylesheet" href="~/Resources/css/exersise.css">
+        <link href="~/Content/BTN.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="~/Resources/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Resources/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Resources/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Resources/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Resources/css/professor.css" />
+    <link rel="stylesheet" href="~/Resources/css/media.css" />
+    <link rel="stylesheet" href="~/Resources/css/default_theme.css" />
+    <link rel="stylesheet" href="~/Resources/css/hover.css" />
+    <link rel="stylesheet" href="~/Resources/css/animate.css" />
+    <link rel="stylesheet" href="~/Resources/css/exersise.css">
+    <link rel="stylesheet" href="~/Resources/css/add-exersise.css">
+    <link rel="stylesheet" href="~/Resources/css/question-type.css">
+    <link rel='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'>
+    <!--[if it IE 9]-->
+    <script src="~/Resources/js/html5shiv.min.js"></script>
+    <script src="~/Resources/js/respond.min.js"></script>
+    @*<link href="~/Resources/css/ex.css" rel="stylesheet" />*@
+    @*<link href="~/Resources/css/exersise.css" rel="stylesheet" />*@
+
+
+    <link rel='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'>
+    <!--[if it IE 9]--
+    <!--[end is]-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Resources/css/text.css">
+</head>
+
+<body>
+    <!--start nav-->
+    <div id="throbber" style="display:none; min-height:120px;"></div>
+    <div id="noty-holder"></div>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img class="img-circle hidden-xs" src="~/images/logo.jpg" alt="LOGO">
+                </a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <!--<li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
+                </a>
+            </li>-->
+
+                <li>
+                    <img class="img-circle hidden-xs" src="~/images/@Session["img"].ToString()" alt="user">
+                </li>
+                <li>
+                    <panel id="#"></panel>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle hidden-xs" data-toggle="dropdown"><span>@Session["uname"].ToString() </span><b class="fa fa-angle-down"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href='@Url.Action("EditProfile", "profile",new { id = Session["id"].ToString() , Type = Session["Type"].ToString() })' onclick='navigate(this.href);'><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/professor/logout"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+
+
+        </nav>
+
+        <!-- /.navbar-collapse -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li class=" visible-xs">
+                    <a href="/professor/EditProfile/@Session["id"].ToString()"><i class="fa fa-fw fa-cog"></i> MY PROFILE</a>
+                </li>
+
+                <li>
+                    <a href="/professor/ProfessorCourses/@Session["id"].ToString()"><i class="fa fa-fw fa-book"></i>  Courses</a>
+                </li>
+
+                <li>
+                    <a href="/professor/GetExercises"><i class="fa fa-fw fa-question-circle"></i> Exersises</a>
+                </li>
+                <li>
+                    <a href="/professor/schedule"><i class="fa fa-fw fa-calendar"></i> Schedule</a>
+                </li>
+                @*<li>
+                    <a href="result.html"><i class="fa fa-fw fa-check"></i> Results</a>
+                </li>*@
+
+                <li>
+                    <a href="/professor/chat/@Session["id"].ToString()"><i class="fa fa-fw fa-comment"></i> Descussion</a>
+                </li>
+
+                <li>
+                    <a href="/professor/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                </li>
+            </ul>
+
+        </div>
+
+
+        <div id="page-wrapper">
+            <div class="container-fluid courses">
+                <div class="row" id="main">
+                    @RenderBody()
+                    <!-- Page Heading -->
+                    @*@*<div class="col-sm-12 col-md-12 well" id="content">
+                        <div class="col-lg-4">
+                            <a href="../professor/lectures.html"> <img src="../images/csharp.png" class="img-rectangle"> </img> </a>
+
+
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="../professor/lectures.html"> <img src="../images/js.jpg" class="img-rectangle"> </img> </a>
+
+
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="../professor/lectures.html"> <img src="../images/html&css.jpg" class="img-rectangle"> </img> </a>
+
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="../professor/lectures.html"> <img src="../images/Database.jpg" class="img-rectangle"> </img> </a>
+
+
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="../professor/lectures.html"> <img src="../images/download.png" class="img-rectangle"> </img> </a>
+
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="../professor/lectures.html"> <img src="../images/1_GWjlB9_708s3lbx8ufOYlw.jpeg" class="img-rectangle"> </img> </a>
+
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="../professor/lectures.html"> <img src="../images/images.png" class="img-rectangle"> </img> </a>
+
+
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="../professor/lectures.html"> <img src="../images/es6.png" class="img-rectangle"> </img> </a>
+
+
+                        </div>
+
+                    </div>*@
+                    <!-- /.row -->
+                    <!-- /.container-fluid -->
+                </div>
+            </div>
+            <!-- /#page-wrapper -->
+        </div><!-- /#wrapper -->
+    </div><!--end nav-->
+        <!--start loadig-->
+        <section class="loading-overlay">
+            <div class="spinner">
+                <div class="cube1"></div>
+                <div class="cube2"></div>
+            </div>
+        </section>
+        <!--end loading-->
+
+        <script src="~/Resources/js/jquery-1.10.2.js"></script>
+        <script src="~/Resources/js/bootstrap.min.js"></script>
+        <script src="~/Resources/js/plugins.js"></script>
+        <script src="~/Resources/js/wow.min.js"></script>
+        <script>new WOW().init();</script>
+        <script src="~/Resources/js/jquery.nicescroll.min.js"></script>
+    @RenderSection("scripts",false)
+</body>
+</html>

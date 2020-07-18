@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ELearningManagementSystem.Models.Cours>
+@{
+    ViewBag.Title = "getAllCourses";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <!--Table -->
+    <section class="course" id="tab">
+        <h1>Courses</h1>
+        <hr>
+        <table class="table table-hover table-bordered table-dark">
+            <thead class="thead-dark">
+
+                <tr>
+
+                    <td>@Html.DisplayNameFor(w => w.Course_Name)</td>
+                    <td> @Html.DisplayNameFor(w => w.Course_Date)</td>
+                    <td> @Html.DisplayNameFor(w => w.Department.DeptName)</td>
+                    <td> @Html.DisplayNameFor(w => w.Professor.PersonalName)</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+
+                        <td style="color:black">@Html.DisplayFor(ww => item.Course_Name)</td>
+                        <td style="color:black">@Html.DisplayFor(ww => item.Course_Date)</td>
+                        <td style="color:black">@Html.DisplayFor(ww => item.Department.DeptName)</td>
+                        <td style="color:black">@Html.DisplayFor(ww => item.Professor.PersonalName)</td>
+                        <td style="color:black">
+                            @Html.ActionLink("Edit", "editcourse", new { id = item.Course_Code }, new { @class = "btn btn-primary" })|
+                            @Html.ActionLink("Delete", "DeleteCourse", new { id = item.Course_Code }, new { @class = "btn btn-danger", onclick = "return confirm('Are You Sure You Want To delete ?')" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!-- end Table-->
+        <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+
+            <div class="col-lg-12 col-md-8">
+                <a href="/admin/addCourse"><input type="button" class="btn btn-primary" value="Add new course"></a>
+                <span></span>
+                <!--<a href="admin-editcourses.html"><input type="reset" class="btn btn-primary" value="Update course"></a>-->
+            </div>
+        </div>
+    </section>
+</div>
+
+@section script{
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}
+
+<!-- /#wrapper -->

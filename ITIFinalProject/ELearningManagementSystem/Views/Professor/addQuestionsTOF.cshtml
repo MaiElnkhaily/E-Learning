@@ -1,0 +1,99 @@
+﻿@model ELearningManagementSystem.Models.True_False
+@{
+    ViewBag.Title = "addQuestionsTOF";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <section class="exercise">
+        <h1>ADD NEW EXERCISE</h1>
+        <hr>
+        <div class="form-group row-md-4">
+            <label for="inputQuestion">Question type</label>
+            <input type="text" name="Type" disabled class="form-control" style="width: 20%;" value="@Session["type"].ToString()" />
+
+        </div>
+        <div class="form-group row-md-4">
+            <label for="inputCourse">Course name</label>
+            <input type="text" name="Course_name" disabled class="form-control" style="width: 20%;" value="@Session["cname"].ToString()" />
+
+        </div>
+        <hr>
+        <form action="/professor/addQuestionsTOF" method="post">
+
+
+            <div class="form-group">
+                <label for="exampleInputQuestion">The Question:</label>
+                @Html.TextBoxFor(ww => ww.Question_Text, new { @class = "form-control", @placeholder = "Enter Question", required = "required" })
+
+            </div>
+            <hr>
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="inputAnswer">Answer:</label>
+
+                    @Html.DropDownList("Choice1",
+                new SelectList(Enum.GetValues(typeof(ELearningManagementSystem.Models.TOFs))),
+                new { @class = "form-control ch", onchange = "addValueToRadioBtn();" })
+
+                </div>
+                <div class="col-md-3 mb-3" style="margin-top: 30px;">
+                    @Html.RadioButtonFor(ww => ww.CorrectAnswer, "", new { @class = "correct", value = "" })
+                    <label class="custom-control-label" for="customControlInline">Is true</label>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="form-row" style="margin-top: 50px;">
+                <div class="col-md-6 mb-3">
+                    <label for="inputAnswer">Answer:</label>
+                    @Html.DropDownList("Choice2",
+               new SelectList(Enum.GetValues(typeof(ELearningManagementSystem.Models.TOFs))),
+               new { @class = "form-control ch", onchange = "addValueToRadioBtn();" })
+                </div>
+
+                <div class="col-md-3 mb-3" style="margin-top: 30px;">
+                    @Html.RadioButtonFor(ww => ww.CorrectAnswer, "", new { @class = "correct", value = "" })
+                    <label class="custom-control-label" for="customControlInline">Is true</label>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <section class="exersise" style="margin-top: 50px;">
+                <a href="/professor/SaveCahnges" class="btn btn-success" style="margin-right: 5px;">Save</a>
+                <input type="submit" class="btn btn-warning" value="New Question">
+            </section>
+        </form>
+    </section>
+</div>
+@section scripts{
+
+    <script>
+        function addValueToRadioBtn() {
+
+            var rads = document.getElementsByClassName("correct");
+            for (var i = 0; i < rads.length; i++) {
+                (function (index) {
+
+                    rads[index].addEventListener("click", function () {
+
+                        var txts = document.getElementsByClassName("ch");
+                        rads[index].value = txts[index].value;
+                    })
+                })(i);
+            }
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}

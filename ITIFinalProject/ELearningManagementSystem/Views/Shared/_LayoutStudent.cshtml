@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!--IE comptability Meta-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta Http-Equiv="Cache-Control" Content="no-cache">
+    <meta Http-Equiv="Pragma" Content="no-cache">
+    <meta Http-Equiv="Expires" Content="0">
+    <!--First Mobile Meta-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="~/Resources/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Resources/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/Resources/css/student.css" />
+    <link rel="stylesheet" href="~/Resources/css/media.css" />
+    <link rel="stylesheet" href="~/Resources/css/default_theme.css" />
+    <link rel="stylesheet" href="~/Resources/css/hover.css" />
+    <link rel="stylesheet" href="~/Resources/css/animate.css" />
+    <link rel="stylesheet" href="~/Resources/css/edit-profile.css" />
+    <link rel="stylesheet" href="~/Resources/css/exersise.css">
+    <link rel='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'>
+    <!--[if it IE 9]-->
+    <script src="~/Resources/js/html5shiv.min.js"></script>
+    <script src="~/Resources/js/respond.min.js"></script>
+    <!--[end is]-->
+</head>
+
+<body>
+    <!--start nav-->
+    <div id="throbber" style="display:none; min-height:120px;"></div>
+    <div id="noty-holder"></div>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img class="img-circle hidden-xs" src="~/images/logo.jpg" alt="LOGO">
+                </a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <!--<li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
+                    </a>
+                </li>-->
+
+                <li>
+                    <img class="img-circle hidden-xs" src="~/images/@Session["img"].ToString()" alt="user">
+                </li>
+                <li>
+                    <panel id="#"></panel>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle hidden-xs" data-toggle="dropdown">
+                        <span>@Session["uname"].ToString() </span><b class="fa fa-angle-down"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href='@Url.Action("EditProfile", "profile",new { id = Session["id"].ToString() , Type = Session["Type"].ToString() })'><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/student/logout"><i class="fa fa-fw fa-power-off"></i> Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+            <ul class="nav navbar-nav side-nav">
+                <li class=" visible-xs">
+                    <a href="/Student/@Session["id"].ToString()"><i class="fa fa-fw fa-cog"></i> MY PROFILE</a>
+                </li>
+                <li>
+                    <a href="/student/StudentCourses/@Session["id"].ToString()"><i class="fa fa-fw fa-book"></i> My Courses</a>
+                </li>
+
+                <li>
+                    @*<a href="student-schedule.html"><i class="fa fa-fw fa-table"></i> Schedule</a>*@
+                </li>
+                <li>
+                    <a href="/student/GetAllExercises"><i class="fa fa-fw fa-question-circle"></i> Exersises</a>
+                </li>
+                <li>
+                    <a href="/student/schedule"><i class="fa fa-fw fa-calendar"></i> Schedule</a>
+                </li>
+                <li>
+                    <a href="/student/chat/@Session["id"].ToString()"><i class="fa fa-fw fa-comment"></i> Discussion</a>
+                </li>
+
+                @*<li>
+                    <a href="/student/result/@Session["id"].ToString()"><i class="fa fa-fw fa-check"></i> My Result</a>
+                </li>*@
+
+                <li>
+                    <a href="/student/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="page-wrapper">
+            <!--start lec-->
+            <div class="container-fluid" id="cf">
+                <!-- Page Heading -->
+                <!-- Content Panel -->
+                <div class="row" id="main">
+                    @RenderBody()
+                    <!--<div class="col-sm-12 col-md-12 well" id="content">
+                            <section class="Edit lectures">
+                                <h1> Lectures <i class="fa fa-fw fa-edit"></i></h1><br>
+
+                                <table class="table table-striped" style="text-align: center;">
+                                    <thead style="text-align: center;">
+                                        <tr>
+                                            <th scope="col">Lecture</th>
+                                            <th scope="col">Video</th>
+                                            <th scope="col">Audio</th>
+                                            <th scope="col">Link</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="text-align: center;">
+                                        <tr>
+                                            <th scope="row">lecture 1</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">lecture 2</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">lecture 3</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+
+                        </table>
+                    </div>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+    <!--end lec-->
+    <!-- /.container-fluid -->
+    <!-- /#page-wrapper -->
+    <!-- /#wrapper -->
+    <!--end nav-->
+    <!--start loadig-->
+    <section class="loading-overlay">
+        <div class="spinner">
+            <div class="cube1"></div>
+            <div class="cube2"></div>
+        </div>
+    </section>
+    <!--end loading-->
+
+    <script src="~/Resources/js/jquery-1.10.2.js"></script>
+    <script src="~/Resources/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Resources/js/plugins.js"></script>
+    <script src="~/Resources/js/wow.min.js"></script>
+    <script>new WOW().init();</script>
+    <script src="~/Resources/js/jquery.nicescroll.min.js"></script>
+    <script src="~/Resources/js/schedule.js"></script>
+
+    @RenderSection("scris", false)
+</body>
+
+</html>
+

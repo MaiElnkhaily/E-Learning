@@ -1,0 +1,24 @@
+﻿.btn-all {
+    margin-left: 5px;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.btn-one {
+    background-color: #00b894;
+}
+
+.btn-two {
+    background-color: #d63031;
+}
+
+
+.imag {
+    width: 400px;
+    float: left;
+}
+
+
+
+

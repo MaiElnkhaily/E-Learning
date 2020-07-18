@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ELearningManagementSystem.Models.Cours>
+@{
+    ViewBag.Title = "ProfessorCourses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    
+        <div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+                @foreach (var item in Model)
+                {
+                <div class="col-lg-4">
+                    <a href="/professor/CourseLectures/@item.Course_Code"> <img src="~/images/@item.Photo" class="img-rectangle"> </a>
+
+                </div>
+                }
+        </div>
+
+@section scripts{
+    
+    <script type="text/javascript">
+    window.history.forward();
+    function noBack() {
+        window.history.forward();
+    }
+    </script>
+    
+    }

@@ -1,0 +1,105 @@
+﻿@model ELearningManagementSystem.Models.Exercise
+@{
+    ViewBag.Title = "add_exersise";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+
+    <h1>ADD NEW EXERCISE</h1>
+    <hr>
+
+    @using (Html.BeginForm("add_exersise", "professor", method: FormMethod.Post))
+    {
+        <div class="form-group row-md-4">
+            <label for="exampleInputTitle">Title</label>
+            @Html.TextBoxFor(w => w.Title, htmlAttributes: new { @class = "form-control", id = "exampleInputTitle", placeholder = "Exersise Title", required = "required" })
+            @* <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="titleHelp" placeholder="Exersise Title">*@
+        </div>
+
+        <div class="mb-3">
+            <label for="validationTextarea">Description</label>
+            @Html.TextAreaFor(w => w.Description, htmlAttributes: new { @class = "form-control is-invalid", id = "validationTextarea", placeholder = "Exersise Description" })
+            @* <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Exersise Description" required></textarea>*@
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputStartDate">Start date</label>
+
+                @Html.TextBoxFor(w => w.StartDate, new { @type = "date", @class = "form-control", id = "inputStartDate", required = "required" })
+                @* <input type="date" class="form-control" id="inputStartDate">*@
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputStartHour">Start hour</label>
+                @Html.TextBoxFor(w => w.StartHour, htmlAttributes: new { @type = "time", @class = "form-control", id = "inputStartHour", required = "required" })
+                @*<input type="time" class="form-control" id="inputStartHour">*@
+            </div>
+        </div>
+
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEndDate">End date</label>
+                @Html.TextBoxFor(w => w.EndDate, new { @type = "date", @class = "form-control", id = "inputStartDate", required = "required" })
+                @*<input type="datetime" class="form-control" id="inputEndDate">*@
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputEndHour">End hour</label>
+                @Html.TextBoxFor(w => w.EndHour, new { @type = "time", @class = "form-control", id = "inputStartHour", required = "required" })
+                @*<input type="time" class="form-control" id="inputEndHour">*@
+            </div>
+        </div>
+
+
+
+        <div class="form-group row-md-4">
+            <label for="inputQuestion">Question type</label>
+            @*<select id="inputQuestion" class="form-control" style="width: 20%;" >
+                    <option selected>True or false</option>
+                    <option>Multiple choice</option>
+                </select>*@
+
+            @Html.DropDownList("Type",
+     new SelectList(Enum.GetValues(typeof(ELearningManagementSystem.Models.QType))),
+     new { @class = "form-control" })
+        </div>
+        <div class="form-group row-md-4">
+            <label for="inputQuestion">Course Name</label>
+
+            @Html.DropDownList("course_code", ViewBag.courses as SelectList, new { @class = "form-control" })
+        </div>
+
+        <br>
+        <section class="add-exersise">
+            @*<a href="question-type.html">
+                    <input type="button" class="btn btn-primary" value="Add new exersise" style="margin-right: 5px;">
+                </a>*@
+            @*@Html.ActionLink("Add New Exercise", "add_exersise", "Professor",null , htmlAttributes:new { @type ="submit" })*@
+            <input type="submit" class="btn btn-primary" value="Add new exersise" style="margin-right: 5px;" />
+
+            @*@Html.ActionLink("","GetQuestion",new { type = Model.Type})*@
+            <input type="reset" class="btn btn-warning" value="Reset">  @*onclick=" reset()"*@
+        </section>
+
+    }
+
+
+
+</div>
+
+@section scripts{
+
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}

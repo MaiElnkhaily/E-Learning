@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ELearningManagementSystem.Models.Lecture>
+@{
+    ViewBag.Title = "CourseLectures";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <section class="Edit lectures">
+        <h1> Lecture <i class="fa fa-fw fa-edit"></i></h1>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Lecture</th>
+                    <th scope="col">Video</th>
+                    <th scope="col">Audio</th>
+                    <th scope="col">PDF</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Lecture1</th>
+                        <td>@item.Video</td>
+                        <td>@item.Audio</td>
+                        <td>@item.PDF</td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditLecture", new { c_id = item.Course_Code, l_id = item.Lecture1 }, new { @style = "background-color:#007bff;border-color:#007bff;color: #fff;font-size:15px; border-radius:20%;padding:5px;width:70px;text-decoration:none" })|
+                            @*<a href="/professor/deleteLecture/@item.Course_Code/@item.Lecture1" ><i class="fa fa-eye fa-2x eye"style="font-size:20px"></i>@*<i class="fa fa-fw fa-eye-slash fa-2x eye1" style="display:none;font-size:20px"></i>*@
+                            @Html.ActionLink("Delete", "deleteLecture", new { c_id = item.Course_Code, l_id = item.Lecture1 }, new { @style = "background-color:#dc3545;border-color:#dc3545;color: #fff;font-size:15px; border-radius:20%;padding:5px;width:70px;text-decoration:none", onclick = "return confirm('Are You Sure you want To delete ?')" })
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <a href="/professor/addLecture">
+            <input type="button" class="btn btn-primary" value="Add new lecture">
+        </a>
+    </section>
+</div>
+
+@section scripts{
+
+    @*<script>
+
+            var eye = document.getElementsByClassName("eye");
+            for (var i = 0; i < eye.length; i++) {
+                (function (index) {
+                    eye[index].addEventListener("click", function () {
+
+                        if (eye[index].classList.contains("fa-eye")) {
+
+                        eye[index].classList.remove('fa-eye');
+                        eye[index].classList.add('fa-eye-slash');
+                        } else {
+                             eye[index].classList.remove('fa-eye-slash');
+                        eye[index].classList.add('fa-eye');
+                        }
+
+
+                    })
+                })(i);
+            }
+        </script>*@
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}

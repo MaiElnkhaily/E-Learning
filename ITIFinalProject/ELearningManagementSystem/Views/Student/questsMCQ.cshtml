@@ -1,0 +1,62 @@
+﻿@model ELearningManagementSystem.Models.MCQ
+
+<div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <section class="exercise" style="color: rgb(48, 75, 86);">
+        <h6>You are performing exersise : @ViewBag.title </h6>
+        <hr>
+
+
+        @using (Ajax.BeginForm("QuestionMCQ", "student", new AjaxOptions
+        {
+
+            HttpMethod = "post",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "content"
+
+        }))
+        {
+
+            <p style="font-size: larger; color: #9B0000;"><b>Q1 : @Model.Question</b></p>
+            <hr>
+            <input type="hidden" name="correct" value="@Model.CorrectAnswer" />
+            <div class="form-check" style="padding: 15px;">
+                <input class="form-check-input" type="radio" name="chosen" id="" value="@Model.Choice1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    @Model.Choice1
+                </label>
+            </div>
+            <div class="form-check" style="padding: 15px">
+                <input class="form-check-input" type="radio" name="chosen" id="" value="@Model.Choice2">
+                <label class="form-check-label" for="exampleRadios2">
+                    @Model.Choice2
+                </label>
+            </div>
+            <div class="form-check" style="padding: 15px">
+                <input class="form-check-input" type="radio" name="chosen" id="" value="@Model.Choice3">
+                <label class="form-check-label" for="exampleRadios2">
+                    @Model.Choice3
+                </label>
+            </div>
+            <div class="form-check" style="padding: 15px">
+                <input class="form-check-input" type="radio" name="chosen" id="" value="@Model.Choice4">
+                <label class="form-check-label" for="exampleRadios2">
+                    @Model.Choice4
+                </label>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary" style="float:right" />
+        }
+
+    </section>
+</div>
+
+
+@section scris{
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}

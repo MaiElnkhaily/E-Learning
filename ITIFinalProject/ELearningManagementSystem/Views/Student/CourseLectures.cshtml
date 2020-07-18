@@ -1,0 +1,106 @@
+﻿@model IEnumerable<ELearningManagementSystem.Models.Lecture>
+@{
+    ViewBag.Title = "CourseLectures";
+    Layout = "~/Views/Shared/_LayoutStudent.cshtml";
+}
+
+<h2>CourseLectures</h2>
+
+
+<div class="col-sm-12 col-md-12 well" id="content" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    <section class="Edit lectures" id="tab">
+        <h1> Lecture <i class="fa fa-fw fa-edit"></i></h1>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Lecture</th>
+                    <th scope="col">Video</th>
+                    <th scope="col">Audio</th>
+                    <th scope="col">PDF</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Lecture1</th>
+                        @*<td><input type="button" class="video-link a1" onclick="change()" style="font-size:12px; color:cornflowerblue;border:none" data-toggle="modal" data-target="#staticBackdrop" value="@item.Video"></td>*@
+                        <td>
+                            @if (item.Video != null)
+                            {
+
+                                @Ajax.ActionLink(@item.Video, "showvideo", new { c = item.Course_Code, l = item.Lecture1 }, new AjaxOptions
+                                {
+
+                           HttpMethod = "get",
+                           UpdateTargetId = "tab",
+                           InsertionMode = InsertionMode.Replace
+
+                       }, new { @style = "font-size:15px; color:cornflowerblue" });
+                            }
+                        </td>
+                        <td>
+                            @if (item.Audio != null)
+                            {
+
+                                <input type="button" style="border:none;display:block;" value="@item.Audio" class="aud" /><div style="display:none" class="audio"><audio src="~/Audios/@item.Audio" controls class="aa"></audio><button style="border:none;font-size:18px;font-weight:bold;bottom:50px;position:relative;bottom:20px;right:22px" class="btncancel">&times;</button></div>
+                            }
+                        </td>
+                        <td>
+                            @if (item.PDF != null)
+                            {
+
+                                @Html.ActionLink(@item.PDF, "DownloadPDF", new { c = item.Course_Code, l = item.Lecture1 }, new { @style = "font-size:15px; color:cornflowerblue" });
+                            }
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </section>
+</div>
+
+@section scris{
+
+    <script>
+        var aud = document.getElementsByClassName("aud");
+        var audio = document.getElementsByClassName("audio");
+        var cancel = document.getElementsByClassName("btncancel");
+        var aa = document.getElementsByClassName("aa");
+        for (var i = 0; i < aud.length; i++) {
+
+            (function (index) {
+                aud[index].addEventListener("click", function () {
+
+                    aud[index].style.display = "none";
+                    audio[index].style.display = "inline-block";
+
+                })
+
+                cancel[index].addEventListener("click", function () {
+                    aud[index].style.display = "block";
+                    audio[index].style.display = "none";
+                    aa[index].pause();
+                })
+            })(i);
+
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}
+

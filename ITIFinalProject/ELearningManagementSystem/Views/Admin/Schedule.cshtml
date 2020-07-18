@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Schedule";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    body {
+        background-color: #eee;
+    }
+</style>
+
+
+<div style="height:700px;width:900px;margin:0 auto" onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload="">
+    @Html.Raw(Model.Render())
+</div>
+
+@section script{
+
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+}

@@ -1,0 +1,31 @@
+﻿@model ELearningManagementSystem.Models.Lecture
+
+<style>
+
+    video {
+        width: 80%;
+        height: 50%;
+        border: 1px solid black;
+        border-radius: 20px;
+        margin-left: 120px;
+        margin-top: 10px;
+        outline: none
+    }
+</style>
+
+<div onLoad="noBack();" onpageshow="if (event.persisted) noBack();" onUnload=""></div>
+
+<video controls src="~/videos/@Model.Video"></video><br /><br />
+
+<a href="/student/CourseLectures/@Model.Course_Code" style="margin-left:150px;font-size:15px">Back</a>
+
+@section scris{
+
+    <script type="text/javascript">
+    window.history.forward();
+    function noBack() {
+        window.history.forward();
+    }
+    </script>
+
+}

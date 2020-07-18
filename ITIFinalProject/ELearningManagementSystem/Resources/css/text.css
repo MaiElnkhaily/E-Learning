@@ -1,0 +1,276 @@
+/*
+LESS Document
+Author: Jacob Scott
+Created: 11-14-15
+Modified: 12-16-15
+*/
+
+
+/* Import Fonts */
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 300;
+    src: local('Open Sans Light Italic'), local('OpenSans-LightItalic'), url(https://fonts.gstatic.com/s/opensans/v15/memnYaGs126MiZpBA-UFUKWyV9hrIqY.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Open Sans Italic'), local('OpenSans-Italic'), url(https://fonts.gstatic.com/s/opensans/v15/mem6YaGs126MiZpBA-UFUK0Zdcg.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 600;
+    src: local('Open Sans SemiBold Italic'), local('OpenSans-SemiBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v15/memnYaGs126MiZpBA-UFUKXGUdhrIqY.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url(https://fonts.gstatic.com/s/opensans/v15/memnYaGs126MiZpBA-UFUKWiUNhrIqY.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 800;
+    src: local('Open Sans ExtraBold Italic'), local('OpenSans-ExtraBoldItalic'), url(https://fonts.gstatic.com/s/opensans/v15/memnYaGs126MiZpBA-UFUKW-U9hrIqY.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OUuhs.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0e.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UNirkOUuhs.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOUuhs.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 800;
+    src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'), url(https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN8rsOUuhs.ttf) format('truetype');
+}
+
+
+/* Colors */
+
+
+/* Fix Browser Defaults */
+
+* {
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    font-family: "Open Sans", Arial, sans-serif;
+    outline: none;
+    outline-offset: 0;
+    border: none;
+}
+
+a {
+    color: #00a8ff;
+}
+
+a:hover {
+    color: #005a89;
+}
+
+
+/* Styles for Pen display */
+
+body {
+    background: #2a2a2a;
+}
+
+
+/* Rich Text Editor Styles */
+
+* {
+    box-sizing: border-box;
+}
+
+.editor-controls {
+    display: block;
+    padding-top: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #bbbbbb;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+.editor-controls .button-group {
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.editor-richText-box {
+    width: 100%;
+    min-height: 380px;
+    border: 2px solid #cccccc;
+    background-color: #efefef;
+    font-family: "Open Sans", helvetica, arial, sans-serif;
+    word-break: break-word;
+    word-wrap: normal;
+    padding: 16px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+.editor-text-box {
+    font-family: "Open Sans", helvetica, arial, sans-serif;
+    word-break: break-word;
+    word-wrap: normal;
+}
+
+.rte.button {
+    display: block;
+    float: left;
+    padding: 6px;
+    margin: 6px;
+    text-align: center;
+}
+
+.rte.button:hover {
+    cursor: pointer;
+}
+
+.rte.main.button {
+    color: white;
+    padding: 6px 12px;
+    margin: 6px;
+    background-color: #9B0000;
+    border: 1px solid #9B0000;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.rte.main.button:hover {
+    background-color: #3a3a3a;
+    border-color: #1a1a1a;
+}
+
+.rte.main.button.fileUpload {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    float: right ;
+}
+
+.rte.main.button.fileUpload input[type="file"] {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    right: 0;
+}
+
+.rte.editor.button {
+    color: #1a1a1a;
+    background-color: #eeeeee;
+    font-weight: bold;
+    margin: 0;
+    height: 34px;
+}
+
+.rte.editor.button:hover {
+    background-color: #3a3a3a;
+    border-color: #1a1a1a;
+    color: white;
+}
+
+.rte.editor.button:first-of-type {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.rte.editor.button:last-of-type {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.rte.editor.dropdown {
+    display: block;
+    display: left;
+    padding: 5px;
+    margin: 6px;
+    height: 34px;
+    text-align: center;
+    color: #1a1a1a;
+    background-color: #eeeeee;
+    font-weight: bold;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    display: inline-block;
+    margin: 0 0px;
+    margin-left: 0;
+}
+
+.rte.editor.dropdown:hover {
+    cursor: pointer;
+    border-color: #1a1a1a;
+}
+
+.rte.editor.dropdown option {
+    background-color: inherit;
+    font-weight: bold;
+}
+
+.rte.editor.dropdown-label {
+    color: #1a1a1a;
+    background-color: #eeeeee;
+    font-weight: bold;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    display: block;
+    float: left;
+    padding: 6px;
+    margin: 0;
+    text-align: center;
+}
+
+.rte.editor.dropdown#fontFamily {
+    width: 150px;
+    font-weight: normal;
+}

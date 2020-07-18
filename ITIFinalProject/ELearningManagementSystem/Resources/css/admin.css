@@ -1,0 +1,581 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+@media(min-width:768px) {
+    body {
+        margin-top: 50px;
+    }
+    /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
+}
+
+#wrapper {
+    padding-left: 0;    
+}
+
+#page-wrapper {
+    width: 100%;        
+    padding: 0;
+    background-color: #fff;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 225px;
+    }
+
+    #page-wrapper {
+        padding: 22px 10px;
+    }
+}
+
+/* Top Navigation */
+.navbar{
+    background-color: #9B0000;
+}
+.navbar-brand > img{
+    width: 50px;
+    border-radius: 50%;
+}
+.top-nav {
+    padding: 0 15px;
+}
+
+.top-nav>li {
+    display: inline-block;
+    /* float: left; */
+}
+
+.top-nav>li>a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 20px;
+    color: #e7e7e7;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #9B0000;
+    background-color: #e7e7e7;
+}
+.navbar .open > .dropdown-menu{
+    color: #9B0000;
+    background-color: #e7e7e7;
+}
+.dropdown .dropdown-menu{
+    border-top: solid 3px #9B0000;
+}
+.dropdown .dropdown-menu .divider{
+    background-color: #9B0000;
+}
+.dropdown .dropdown-menu > li > a:hover{
+    background-color: #9B0000;
+    color: #e7e7e7;
+}
+/* Side Navigation */
+
+@media(min-width:768px) {
+.side-nav {
+    position: fixed;
+    top: 60px;
+    left: 225px;
+    width: 225px;
+    margin-left: -225px;
+    border: none;
+    border-radius: 0;
+    border-top: 1px #e7e7e7 solid;
+    overflow-y: auto;
+    background-color: #9B0000;
+    bottom: 0;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+}
+.nav img{
+        width: 50px;
+        height: 50px;
+    }
+.navbar-inverse .navbar-nav > li > a{
+    color: #e7e7e7;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #9B0000;
+}
+.side-nav>li>a {
+    width: 225px;
+    border-bottom: 1px #e7e7e7 solid;
+}
+.side-nav li a:hover,
+.side-nav li a:focus {
+    outline: none;
+    background-color: #e7e7e7 !important;
+    color: #9B0000;
+}
+
+.navbar-nav > li > a {
+    color: #e7e7e7;
+}
+
+.nav > li:hover{
+    background-color: #e7e7e7;
+}
+
+.navbar .nav > li > a > .label {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 14px;
+  right: 6px;
+  font-size: 10px;
+  font-weight: normal;
+  min-width: 15px;
+  min-height: 15px;
+  line-height: 1.0em;
+  text-align: center;
+  padding: 2px;
+}
+.navbar .nav > li > a:hover > .label {
+  top: 10px;
+}
+.navbar-inverse .navbar-nav > .actived > a{
+    color: rgb(48, 75, 86);
+    background-color: #e7e7e7;
+}
+.navbar-brand {
+    padding: 5px 15px;
+}
+.well{
+    min-height: 550px
+}
+/*start edit profile*/
+.edit-profile h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+}
+.edit-profile h1{
+    color: rgb(48, 75, 86);
+}
+.edit-profile .img-circle{
+    width: 150px;
+}
+.edit-profile input{
+    border-radius: 500px;
+}
+.edit-profile label{
+    color: rgb(48, 75, 86);
+}
+
+.edit-profile .form-control{
+    color: rgb(48, 75, 86);
+}
+input[type="button"],input[type="reset"]{
+    border-radius: 7%;
+}
+/*start course*/
+.course h1{
+    color:  rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+}
+.course .table{
+    width: 1000px;
+    align-self: center;
+    margin-left: 55px;
+}
+.course .table > thead:first-child > tr:first-child > td{
+    text-align: center;
+    background-color:  #9B0000;
+    color: #e7e7e7;
+    font-size: 18px; 
+    width: 100px;   
+}
+.course .table-bordered > tbody > tr > td{
+    border: 2px solid #9B0000;
+    color:  #e7e7e7;
+    background-color: #fff;
+    font-size: 15px; 
+    text-align: center;
+}
+.course .btn-success,
+.course .btn-danger,
+.course .btn-primary{
+    border-radius: 7px;
+    text-align: center;
+}
+.course .btn-primary{
+    border-radius: 7px;
+    margin: 2px;
+}
+/*end course*/
+/*start new course*/
+.new-course h1{
+    color:  rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+}
+
+.new-course input,
+.new-course .selector{
+    border-radius: 500px;
+   padding: .4rem;
+   background: rgb(231, 231, 231);
+   /* color:  #9B0000; */
+}
+.new-course label{
+    color:  rgb(48, 75, 86);
+    border-radius: 7%;
+}
+.new-course .personal-info{
+margin-left: 150px;
+}
+.new-course select {
+    text-transform: none;
+    background-color: #e7e7e7;
+    border: none;
+    width: 100%;
+
+}
+.new-course .btn-primary{
+    border-radius: 7px;
+    /* width: 25%; */
+}
+/*end new course*/
+/*start edit course*/
+.edit-course h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+}
+.edit-course input,
+.edit-course .selector{
+    border-radius: 50px;
+   padding: .4rem;
+   background: rgb(231, 231, 231);
+   /* color: #9B0000 ; */
+}
+.edit-course label{
+    color:  rgb(48, 75, 86);
+}
+.edit-course .personal-info{
+    padding-left: 150px;
+}
+.edit-course select {
+    text-transform: none;
+    background-color: #e7e7e7;
+    border: none;
+    width: 100%;
+}
+.edit-course .btn-primary{
+    border-radius: 7%;
+}
+/*end edit course*/
+/*start doctor*/
+.doctor h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+}
+.doctor .table > thead:first-child > tr:first-child > td{
+    text-align: center;
+    background-color: rgb(48, 75, 86);
+    color: #e7e7e7;
+    font-size: 18px;    
+}
+.doctor .table-bordered > tbody > tr > td{
+    border: 2px solid #304b56;
+    color: rgb(48, 75, 86);
+    font-size: 15px; 
+}
+.doctor .btn-success,
+.doctor .btn-danger{
+    border-radius: 7px;
+    text-align: center;
+}
+.doctor .btn-primary{
+    border-radius: 7px;
+    margin: 2px;
+}
+/*end doctot*/
+/*start edit doctor*/
+.edit-doctor h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+}
+.edit-doctor input,
+.edit-doctor .selector{
+    border-radius: 50px;
+   padding: .4em;
+   background: rgb(231, 231, 231);
+   color: rgb(48, 75, 86);
+}
+.edit-doctor label{
+    color: rgb(48, 75, 86);
+}
+.edit-doctor select {
+    text-transform: none;
+    background-color: #e7e7e7;
+    border: none;
+    width: 100%;
+}
+.edit-doctor .btn-primary,
+.edit-doctor .btn-danger{
+    border-radius: 7px;
+}
+/*end edit doctor*/
+/*start new doctor*/
+.new-doctor h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+}
+.new-doctor .personal-info{
+    padding-left: 150px;
+}
+.new-doctor input,
+.new-doctor .selector{
+    border-radius: 50px;
+   padding: .4em;
+   background: rgb(231, 231, 231);
+   color: rgb(48, 75, 86);
+}
+.new-doctor label{
+    color: rgb(48, 75, 86);
+}
+.new-doctor select {
+    text-transform: none;
+    background-color: #e7e7e7;
+    border: none;
+    width: 100%;
+}
+.new-doctor .btn-primary,
+.new-doctor .btn-danger{
+    border-radius: 7px;
+}
+.form-horizontal .control-label {
+    text-align: left;
+    padding-left: 100px;
+}
+/*end new doctor*/
+/*start student*/
+.student h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+}
+.student .table > thead:first-child > tr:first-child > td{
+    text-align: center;
+    background-color:#9B0000;
+    color: #e7e7e7;
+    font-size: 18px;    
+}
+.student .table-bordered > tbody > tr > td{
+    border: 1px solid #9B0000;
+    color:rgb(48, 75, 86);
+    background-color: #fff;
+    font-size: 15px; 
+}
+.student .btn-success,
+.student .btn-danger{
+    border-radius: 20px;
+    text-align: center;
+}
+.student .btn-primary{
+    border-radius: 50px;
+    margin: 2px;
+}
+#empty{
+    width: 150px;
+}
+#edit,#delete,#new{
+    border-radius:7%;
+}
+/*end student*/
+/*start edit student*/
+.edit-student h1{
+    text-align: center;
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+}
+.edit-student input,
+.edit-student .selector{
+    border-radius: 50px;
+   padding: .4em;
+   background: rgb(231, 231, 231);
+   color: rgb(48, 75, 86);
+}
+.edit-student label{
+    color: rgb(48, 75, 86);
+}
+.edit-student select {
+    text-transform: none;
+    background-color: #e7e7e7;
+    border: none;
+    width: 100%;
+}
+.edit-student .btn-primary,
+.edit-student .btn-danger{
+    border-radius: 7px;
+}
+.edit-student .personal-info{
+    padding-left: 150px;
+}
+/*end edit student*/
+/*start new student*/
+.new-student h1{
+    text-align: center;
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+}
+.new-student input,
+.new-student .selector{
+    border-radius: 50px;
+   padding: .4em;
+   background: rgb(231, 231, 231);
+   color: rgb(48, 75, 86);
+}
+.new-student label{
+    color: rgb(48, 75, 86);
+}
+.new-student select {
+    text-transform: none;
+    background-color: #e7e7e7;
+    border: none;
+    width: 100%;
+}
+.new-student .btn-primary,
+.new-student .btn-danger{
+    border-radius: 50px;
+}
+#add{
+    border-radius: 7%;
+}
+.new-student .personal-info{
+    padding-left: 150px;
+}
+/*end new student*/
+/*start Schedule*/
+.Schedule h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+}
+.Schedule .container .form-group{
+    padding-left: 150px;
+}
+.Schedule input,
+.Schedule .selector{
+    border-radius: 50px;
+   padding: .4em;
+   background: rgb(231, 231, 231);
+   color: rgb(48, 75, 86);
+}
+.Schedule label{
+    color: rgb(48, 75, 86);
+}
+.Schedule select {
+    text-transform: none;
+    background-color: #e7e7e7;
+    border: none;
+    width: 100%;
+}
+.Schedule .btn-primary,
+.Schedule .btn-danger{
+    border-radius: 50px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+.Schedule .btn-primary:hover{
+    border-radius: 50px;
+    color: #fff;
+    background-color: #396a94;
+    border-color: #2e6da4;
+}
+.centered #schedule{
+        width: 100%;
+        /* margin: 0 auto; */
+        max-width: 895px;
+        background: #fff;
+        font-family: "Roboto", sans-serif;
+        display: flex;
+        /* position: asbolute; */
+        margin-top: 5px;
+        margin-left: 70px;
+    }
+#save{
+    border-radius: 7%;
+
+}
+#view{
+    border-radius: 7%;
+}
+/*end Schedule*/
+/*start schedule view*/
+.schedule h1{
+    color: rgb(48, 75, 86);
+    font-family: cursive;
+    font-weight: bold;
+    text-align: center;
+}
+.centered{
+    margin-top: 70px;
+    /* margin-left: 75px; */
+}
+.well2{
+    margin-top: 50px;
+}
+/*end schedule view*/
+/*start home*/
+
+.home.btn-primary{
+    width: 50%;
+    height: 50%;
+    
+}
+
+
+}
+.btn-Containetr{
+position: relative;
+    margin-top: 20%;
+    align-items: center;
+
+}
+
+.btn-Containetr .favorite.styled{
+    padding: 2em;
+    border-radius: 8px;
+    margin-right: 5em;
+    font-size: 18px;
+    font-weight: bold;
+}
+.btn-Containetr #btn-Courses{
+    margin-right: 0px;  
+}
+.btn-Containetr .favorite.styled {
+    padding: 2em;
+    border-radius: 8px;
+    margin-right: 5em;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 90px;
+}
+.btn-Containetr .favorite.styled a{
+   text-decoration: none;
+   color: #9B0000;
+   border-color: #e7e7e7;
+}
+/* end home */
